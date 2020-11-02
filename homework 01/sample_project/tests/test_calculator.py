@@ -1,5 +1,4 @@
 import pytest
-
 from calculator.calc import check_power_of_2
 
 
@@ -8,6 +7,9 @@ from calculator.calc import check_power_of_2
     [
         (65536, True),
         (12, False),
+        (-65536, False),
+        (0, False),
+        # ('eight', TypeError)  FAILED: Assertion failed
     ],
 )
 def test_power_of_2(value: int, expected_result: bool):

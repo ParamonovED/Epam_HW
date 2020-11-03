@@ -6,10 +6,10 @@ Given a cell with "it's a fib sequence" from slideshow,
 We guarantee, that the given sequence contain >= 0 integers inside.
 
 """
-# from collections import Sequence    'ABCMeta' object is not subscriptable
+from typing import Sequence  # 'ABCMeta' object is not subscriptable
 
 
-def check_fibonacci(data) -> bool:
+def check_fibonacci(data: Sequence[int]) -> bool:
     ans = False
     tmp1 = 0
     tmp2 = 1

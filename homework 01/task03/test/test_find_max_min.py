@@ -7,8 +7,8 @@ from model.find_max_min import find_maximum_and_minimum
 @pytest.mark.parametrize(
     ["file_name", "expected_result"],
     [
-        ("test1", (-3, 87)),
-        ("test2", (5, 5)),
+        ("test1.txt", (-3, 87)),
+        ("test2.txt", (5, 5)),
     ],
 )
 def test_find_maximum_and_minimum(file_name: str, expected_result: Tuple[int, int]):

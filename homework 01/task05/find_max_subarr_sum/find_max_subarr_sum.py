@@ -15,11 +15,10 @@ from typing import List
 def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
     if k > len(nums):
         raise ValueError("'k' must be less than 'nums'")
-    ans = 0
-    for i in range(len(nums) - (k - 1)):
-        tmp = 0
-        for j in range(k):
-            tmp += nums[i + j]
-        if ans < tmp:
-            ans = tmp
+    ans = nums[0]
+    for i in range(k):
+        for j in range(len(nums)):
+            tmp = sum(nums[j : j + i + 1])
+            if tmp > ans:
+                ans = tmp
     return ans

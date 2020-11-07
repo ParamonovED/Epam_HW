@@ -6,22 +6,31 @@ Given a cell with "it's a fib sequence" from slideshow,
 We guarantee, that the given sequence contain >= 0 integers inside.
 
 """
-from typing import Sequence  # 'ABCMeta' object is not subscriptable
+from typing import Sequence
 
 
 def check_fibonacci(data: Sequence[int]) -> bool:
     ans = False
     tmp1 = 0
     tmp2 = 1
-    tmp3 = 1
+    if len(data) == 0:
+        return True
+    if len(data) < 0:
+        raise ValueError("< 0 integers inside")
+    if not isinstance(data, Sequence):
+        raise TypeError
+
     while tmp1 < data[0]:
-        tmp1, tmp2, tmp3 = tmp2, tmp3, tmp2 + tmp3
+        tmp1, tmp2 = tmp2, tmp1 + tmp2
     if tmp1 == data[0]:
-        for i in range(len(data)):
-            if data[i] == tmp1:
+        for i in data:
+            if i == tmp1:
                 ans = True
             else:
                 ans = False
                 break
-            tmp1, tmp2, tmp3 = tmp2, tmp3, tmp2 + tmp3
+            tmp1, tmp2, = (
+                tmp2,
+                tmp1 + tmp2,
+            )
     return ans

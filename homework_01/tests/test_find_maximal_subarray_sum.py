@@ -1,7 +1,8 @@
 from typing import List
 
 import pytest
-from find_max_subarr_sum.find_max_subarr_sum import find_maximal_subarray_sum
+
+from homework_01.find_max_subarr_sum import find_maximal_subarray_sum
 
 
 @pytest.mark.parametrize(
@@ -19,5 +20,4 @@ def test_find_maximal_subarray_sum(nums: List[int], k: int, expected_result: int
 
 def test_find_maximal_subarray_sum_raises():
     with pytest.raises(ValueError):
-        actual_result = find_maximal_subarray_sum([1, 3, 6, 7], 5)
-        assert actual_result == ValueError
+        find_maximal_subarray_sum([1, 3, 6, 7], 5)

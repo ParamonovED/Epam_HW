@@ -1,5 +1,6 @@
 import pytest
-from calculator.calc import check_power_of_2
+
+from homework_01.calc import check_power_of_2
 
 
 @pytest.mark.parametrize(
@@ -13,5 +14,4 @@ def test_power_of_2(value: int, expected_result: bool):
 
 def test_power_of_2_raises():
     with pytest.raises(TypeError):
-        actual_result = test_power_of_2("eight")
-        assert actual_result == TypeError
+        test_power_of_2("eight")

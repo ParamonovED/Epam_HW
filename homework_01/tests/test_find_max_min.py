@@ -1,7 +1,8 @@
 from typing import Tuple
 
 import pytest
-from model.find_max_min import find_maximum_and_minimum
+
+from homework_01.find_max_min import find_maximum_and_minimum
 
 
 @pytest.mark.parametrize(

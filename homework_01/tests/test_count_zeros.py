@@ -1,7 +1,8 @@
 from typing import List
 
 import pytest
-from count_zeros.count_zeros import check_sum_of_four
+
+from homework_01.count_zeros import check_sum_of_four
 
 
 @pytest.mark.parametrize(

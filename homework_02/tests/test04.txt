@@ -1,0 +1,4 @@
+file with empty lines
+
+like this
+seven eight nine ten

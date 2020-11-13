@@ -25,19 +25,14 @@ def test_get_longest_diverse_words_punctuation():
         "punctuation",
         "second",
         "First",
-        "word",
         "some",
-        "the",
+        "word",
         "end",
+        "the",
         "and",
         "of",
     ]
     assert get_longest_diverse_words("test02.txt") == expected_result
-
-
-def test_get_longest_diverse_words_less_than_10_words():
-    with pytest.raises(Exception, match="Too small amount of words"):
-        get_longest_diverse_words("test3.txt")
 
 
 def test_get_longest_diverse_words_empty_lines():
@@ -57,5 +52,10 @@ def test_get_longest_diverse_words_empty_lines():
 
 
 def test_get_rarest_char():
-    expected_result = "g"
+    expected_result = "fwmpykvg"
     assert get_rarest_char("test04.txt") == expected_result
+
+
+def test_get_longest_diverse_words_less_than_10_words():
+    with pytest.raises(Exception, match="Too small amount of words"):
+        get_longest_diverse_words("test03.txt")

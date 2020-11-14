@@ -23,18 +23,16 @@ from typing import List, Tuple
 def major_and_minor_elem(inp: List) -> Tuple[int, int]:
     if not isinstance(inp, List):
         raise TypeError("Input must be List")
-    if len(inp) == 0:
-        raise ValueError("Empty list")
-    if len(inp) == 2:
-        raise Exception("Only 2 values")
+    if len(inp) <= 2:
+        raise Exception("Need more than 2 values")
     maximum = minimum = inp.count(inp[0])
     major = minor = None
     for elem in inp:
         amount = inp.count(elem)
-        if amount >= len(inp) // 2 and amount >= maximum:
+        if amount >= len(inp) // 2 and amount >= maximum and elem != major:
             maximum = amount
             major = elem
-        if amount <= minimum:
+        if amount <= minimum and elem != minor:
             minimum = amount
             minor = elem
     return major, minor

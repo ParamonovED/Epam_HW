@@ -26,10 +26,10 @@ def test_major_and_minor_typeerror():
 
 
 def test_major_and_minor_valueerror():
-    with pytest.raises(ValueError, match="Empty list"):
+    with pytest.raises(Exception, match="Need more than 2 values"):
         major_and_minor_elem([])
 
 
 def test_major_and_minor_elem_raises():
-    with pytest.raises(Exception, match="Only 2 values"):
+    with pytest.raises(Exception, match="Need more than 2 values"):
         major_and_minor_elem([1, 1])

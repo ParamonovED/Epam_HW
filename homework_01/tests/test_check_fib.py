@@ -19,16 +19,9 @@ from homework_01.check_fib import check_fibonacci
 )
 def test_check_fib(value: Sequence[int], expected_result: bool):
     actual_result = check_fibonacci(value)
-
     assert actual_result == expected_result
 
 
-@pytest.mark.parametrize(
-    ["value", "expected_result"],
-    [
-        ("zero", TypeError),
-    ],
-)
-def test_check_fib_raises(value, expected_result):
-    with pytest.raises(expected_result):
-        test_check_fib(value)
+def test_check_fib_raises():
+    with pytest.raises(TypeError, match="Data is not Sequence"):
+        check_fibonacci(True)

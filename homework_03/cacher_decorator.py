@@ -1,21 +1,22 @@
 from collections.abc import Callable
 
 
-def cache(function: Callable, times) -> Callable:
-    journal = {}
+def cache(times):
+    def cacher(function: Callable) -> Callable:
+        journal = {}
 
-    def wrapper(*args):
-        if journal.get(args):
-            if journal.get(args)[1] > 0:
-                result = journal.get(args)[0]
-                journal[args][1] -= 1
+        def wrapper(*args, **kwargs):
+            args_mod = tuple(str(i) for i in args)
+            kwargs_mod = tuple(str(i) for i in kwargs.items())
+            all_args = args_mod, kwargs_mod
+            if journal.get(all_args) and journal.get(all_args)[1] > 0:
+                result = journal.get(all_args)[0]
+                journal[all_args][1] -= 1
             else:
-                journal.pop(args)
-                result = function(*args)
-                journal[args] = [result, times]
-        else:
-            result = function(*args)
-            journal[args] = [result, times]
-        return result
+                result = function(*args, **kwargs)
+                journal[all_args] = [result, times]
+            return result
 
-    return wrapper
+        return wrapper
+
+    return cacher

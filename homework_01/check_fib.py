@@ -13,13 +13,10 @@ def check_fibonacci(data: Sequence[int]) -> bool:
     ans = False
     tmp1 = 0
     tmp2 = 1
+    if not isinstance(data, Sequence):
+        raise TypeError("Data is not Sequence")
     if len(data) == 0:
         return True
-    if len(data) < 0:
-        raise ValueError("< 0 integers inside")
-    if not isinstance(data, Sequence):
-        raise TypeError
-
     while tmp1 < data[0]:
         tmp1, tmp2 = tmp2, tmp1 + tmp2
     if tmp1 == data[0]:
@@ -34,3 +31,6 @@ def check_fibonacci(data: Sequence[int]) -> bool:
                 tmp1 + tmp2,
             )
     return ans
+
+
+# print(check_fibonacci(True))

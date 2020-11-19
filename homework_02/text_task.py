@@ -90,4 +90,20 @@ def get_most_common_non_ascii_char(file_path: str) -> str:
     return f"{ans[max(ans)]}"
 
 
-# print(get_longest_diverse_words("test02.txt"))  # 8277 # 5476
+print(
+    "longest_diverse_words\t",
+    get_longest_diverse_words("data.txt"),
+    "\n",
+    "rarest_char\t",
+    get_rarest_char("data.txt"),
+    "\n",
+    "punctuation_chars\t",
+    count_punctuation_chars("data.txt"),
+    "\n",
+    "non_ascii_chars\t",
+    count_non_ascii_chars("data.txt"),
+    "\n",
+    "most_common_non_ascii_char\t",
+    get_most_common_non_ascii_char("data.txt"),
+    "\n",
+)

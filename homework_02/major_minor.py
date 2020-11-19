@@ -17,17 +17,17 @@ Input: [2,2,1,1,1,2,2]
 Output: 2, 1
 
 """
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 
 
-def major_and_minor_elem(inp: List) -> Tuple[int, int]:
+def major_and_minor_elem(inp: List) -> Tuple[Optional[int], int]:
     if not isinstance(inp, List):
         raise TypeError("Input must be List")
     if len(inp) <= 2:
         raise Exception("Need more than 2 values")
     maximum = minimum = inp.count(inp[0])
     major = minor = None
-    for elem in inp:
+    for elem in set(inp):
         amount = inp.count(elem)
         if amount >= len(inp) // 2 and amount >= maximum and elem != major:
             maximum = amount

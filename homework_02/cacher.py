@@ -21,27 +21,20 @@ assert val_1 is val_2
 from collections.abc import Callable
 
 
-def cache(function: Callable) -> Callable:
+def cache(func: Callable) -> Callable:
     journal = {}
 
     def wrapper(*args):
         if journal.get(args):
             result = journal.get(args)
         else:
-            result = function(*args)
+            result = func(*args)
             journal[args] = result
         return result
 
     return wrapper
 
 
-def func(a):
+def f(a):
     ans = a ** 2
-    print("real invocation")
     return ans
-
-
-cached_func = cache(func)  # I don't know other way how to test it yet
-
-print(cached_func(5))
-print(cached_func(5))

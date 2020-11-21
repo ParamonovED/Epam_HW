@@ -5,7 +5,7 @@ import pytest
 from homework_03.cacher_decorator import cache
 
 
-def test_cacher_decorator():
+def test_cacher_decorator_count_calls():
     mock = Mock()
 
     def f(*args, **kwargs):
@@ -28,7 +28,7 @@ def test_cacher_decorator():
     assert actual_result == expected_result
 
 
-def test_cacher_decorator_zero():
+def test_cacher_decorator_without_caching():
     mock = Mock()
 
     def f(*args, **kwargs):
@@ -55,7 +55,7 @@ def test_cacher_decorator_zero():
         [True, True],
     ],
 )
-def test_cacher_decorator_check_inputs(first, second):
+def test_cacher_decorator_check_outputs(first, second):
     @cache(2)
     def f(*args, **kwargs):
         return args, kwargs
@@ -67,7 +67,7 @@ def test_cacher_decorator_check_inputs(first, second):
 
 
 @pytest.mark.parametrize(["first", "second"], [(1, 1.0), [True, 1]])
-def test_cacher_decorator_check_different_inputs(first, second):
+def test_cacher_decorator_check_different_hashable_inputs(first, second):
     @cache(2)
     def f(*args, **kwargs):
         return args, kwargs

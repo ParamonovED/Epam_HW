@@ -20,8 +20,8 @@ Write a function that detects if a number is Armstrong number in functionaly sty
 
 def is_armstrong(number: int) -> bool:
     result = False
-    if not isinstance(number, int):
-        raise Exception("Value is not integer!")
+    if not isinstance(number, int) or isinstance(number, bool):
+        raise Exception("Value is not integer")
     number_str = str(number)
     elem = [i for i in number_str]
     a = map(lambda i: int(i) ** len(number_str), elem)

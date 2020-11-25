@@ -12,7 +12,7 @@ def create_file(tmpdir_factory):
 
     try:
         os.remove(filename)
-    except:
+    except IOError:
         pass
 
 
@@ -25,13 +25,7 @@ def test_positive_case(value, create_file):
     assert actual_result == True
 
 
-@pytest.mark.parametrize(
-    "value",
-    [
-        0,
-        3,
-    ],
-)
+@pytest.mark.parametrize("value", [0, 3])
 def test_negative_case(value, create_file):
     with open(create_file, "w") as file:
         file.write(str(value))

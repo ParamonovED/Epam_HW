@@ -19,7 +19,7 @@ You will learn:
  - how to write to stderr
  - how to test output to the stderr and stdout
 
-
+Just run this file, doctest will be run automatically
 """
 import sys
 

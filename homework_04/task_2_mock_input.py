@@ -25,7 +25,6 @@ You will learn:
 
 * https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen
 """
-import http.client
 import urllib.request
 import urllib.response
 from urllib.error import HTTPError

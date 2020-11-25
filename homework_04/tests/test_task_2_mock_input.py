@@ -1,3 +1,6 @@
+"""
+Warning! This module has dependence on internet connection. For Independed testing turn off the first test!
+"""
 import urllib.request
 from unittest.mock import Mock
 from urllib.error import HTTPError

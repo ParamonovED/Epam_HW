@@ -39,11 +39,6 @@ def fizzbuzz(n: int) -> List[str]:
     >>> fizzbuzz(15)
     ['1', '2', 'fizz', '4', 'buzz', 'fizz', '7', '8', 'fizz', 'buzz', '11', 'fizz', '13', '14', 'fizzbuzz']
 
-    >>> fizzbuzz(-1)
-    Traceback (most recent call last):
-    ...
-    ValueError: Input is not positive!
-
     >>> fizzbuzz(0)
     []
 
@@ -81,6 +76,12 @@ def calculate_fizzbuzz(n):
 def check_input(n):
     """
     That function checks is input is correct or not, we can't get get negative amount of values
+
+    >>> fizzbuzz(-1)
+    Traceback (most recent call last):
+    ...
+    ValueError: Input is not positive!
+
     """
     if n < 0:
         raise ValueError("Input is not positive!")

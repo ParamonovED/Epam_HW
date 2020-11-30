@@ -1,5 +1,7 @@
 import datetime
 
+import pytest
+
 from homework_05.oop_1 import Student, Teacher
 
 student = Student("Roman", "Petrov")
@@ -18,7 +20,7 @@ def test_create_teacher():
 
 
 def test_create_and_check_daedline_expired_homework():
-    assert expired_homework.deadline == datetime.timedelta(0)  # 0:00:00
+    assert expired_homework.deadline == datetime.timedelta(0)
 
 
 def test_create_and_check_name_expired_homework():
@@ -30,7 +32,7 @@ def test_create_homework_too():
 
 
 def test_expired_homework():
-    assert student.do_homework(expired_homework) == None  # You are late
+    assert student.do_homework(expired_homework) == None
 
 
 def test_homework_too():
@@ -43,6 +45,21 @@ def test_check_print(capsys):
     assert captured.out == "You are late\n"
 
 
-"""def test_failed_create_student():
-    with pytest.raises(TypeError, match="__init__() missing 1 required positional argument: 'last_name'"):
-        student = Student('Petrov')"""
+def test_failed_create_student():
+    with pytest.raises(
+        TypeError, match="... required positional argument: 'last_name'"
+    ):
+        Student("Petrov")
+
+
+def test_failed_create_teacher():
+    with pytest.raises(
+        TypeError, match="... required positional argument: 'last_name'"
+    ):
+        Teacher("Petrov")
+
+
+def test_failed_create_homework():
+    """Also it works without other argument, believe me"""
+    with pytest.raises(TypeError, match="... required positional argument: ..."):
+        teacher.create_homework(3)

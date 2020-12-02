@@ -11,7 +11,6 @@ reset_instances_counter - сбросить счетчик экземпляров
 
 
 def instances_counter(cls):
-    """Some code"""
     cls._counter = 0
 
     def __new__(Cls):

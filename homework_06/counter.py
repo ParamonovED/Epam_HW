@@ -11,20 +11,20 @@ reset_instances_counter - сбросить счетчик экземпляров
 
 
 def instances_counter(cls):
-    cls._counter = 0
+    cls.counter = 0
 
     def __new__(Cls):
-        cls._counter += 1
+        cls.counter += 1
         instance = super(cls, Cls).__new__(Cls)
         return instance
 
     cls.__new__ = __new__
 
     def get_created_instances(*self):
-        return cls._counter
+        return cls.counter
 
     def reset_instances_counter(*self):
-        cls._counter, count_last = 0, cls._counter
+        cls.counter, count_last = 0, cls.counter
         return count_last
 
     cls.get_created_instances = get_created_instances

@@ -32,7 +32,7 @@ def test_create_homework_too():
 
 
 def test_expired_homework():
-    assert student.do_homework(expired_homework) == None
+    assert not student.do_homework(expired_homework)
 
 
 def test_homework_too():

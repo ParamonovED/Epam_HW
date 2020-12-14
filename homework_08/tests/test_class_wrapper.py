@@ -20,7 +20,7 @@ def test_creting_an_object():
     assert isinstance(x, KeyValueStorage)
 
 
-def test_check_values(create_object, rollback_file):
+def test_check__dict__(create_object, rollback_file):
     create_object = KeyValueStorage("task1.txt")
 
     assert create_object.__dict__ == {
@@ -34,6 +34,10 @@ def test_check_values(create_object, rollback_file):
 
 def test_check_int(create_object):
     assert isinstance(create_object.power, int)
+
+
+def test_check_values(create_object):
+    assert create_object.name == "kek"
 
 
 def test_set_built_in_attribute(create_object):

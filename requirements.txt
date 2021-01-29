@@ -33,3 +33,6 @@ typed-ast==1.4.1
 typing-extensions==3.7.4.3
 urllib3==1.25.11
 virtualenv==20.1.0
+aiohttp~=3.7.3
+beautifulsoup4~=4.9.3
+pandas~=1.2.0

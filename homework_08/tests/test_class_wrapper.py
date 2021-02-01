@@ -7,7 +7,7 @@ from homework_08.class_wrapper import KeyValueStorage
 def rollback_file():
     yield
     with open("task1.txt", "w") as fi:
-        fi.writelines("name=kek\nlast_name=top\nsong_name=shadilay\npower=9001\n")
+        fi.writelines("first_name=kek\nlast_name=top\nsong_name=shadilay\npower=9001\n")
 
 
 @pytest.fixture
@@ -26,7 +26,7 @@ def test_check__dict__(create_object, rollback_file):
     assert create_object.__dict__ == {
         "file_name": "task1.txt",
         "last_name": "top",
-        "name": "kek",
+        "first_name": "kek",
         "power": 9001,
         "song_name": "shadilay",
     }
@@ -37,7 +37,7 @@ def test_check_int(create_object):
 
 
 def test_check_values(create_object):
-    assert create_object.name == "kek"
+    assert create_object.first_name == "kek"
 
 
 def test_set_built_in_attribute(create_object):

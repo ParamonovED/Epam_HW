@@ -64,7 +64,7 @@ def preparing_companies():
         preparing_company["code"] = company_code_element.span.text[2:]
 
         company_name_element = company.findChild(class_="price-section__label")
-        preparing_company["name"] = company_name_element.text
+        preparing_company["first_name"] = company_name_element.text
 
         price_element = company.findChild(class_="price-section__current-value")
         price = float(price_element.text.replace(",", "") * exchange)

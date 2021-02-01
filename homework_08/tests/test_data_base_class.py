@@ -19,7 +19,7 @@ def test_check_len(create_presidents):
 
 def test_check_printing_row_by_keyword(
     create_presidents,
-):  # I decided keyword will be name of president
+):  # I decided keyword will be first_name of president
     presidents = create_presidents
     assert presidents["Yeltsin"] == [("Yeltsin", 999, "Russia")]
 
@@ -31,7 +31,9 @@ def test_(create_presidents):
 def test_returning_coulumn(create_presidents):
     answer = []
     for president in create_presidents:
-        answer.append(president["country"])  # of course, if u know name of coulumn
+        answer.append(
+            president["country"]
+        )  # of course, if u know first_name of coulumn
     assert answer == ["Russia", "US", "Kekistan"]
 
 

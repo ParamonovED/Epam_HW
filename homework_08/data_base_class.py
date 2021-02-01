@@ -23,12 +23,9 @@ class TableData:
 
     @make_connection
     def __getitem__(self, cursor, item):
-        # query_input = (item,)
-        cursor.execute(
-            f"SELECT * from {self.table_name} WHERE name='{item}'"
-        )  # , query_input)
+        cursor.execute(f"SELECT * from {self.table_name} WHERE name='{item}'")
         result = cursor.fetchall()
-        if result == []:
+        if not result:
             raise KeyError(f"key '{item}' not found")
         return result
 

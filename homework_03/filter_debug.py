@@ -46,19 +46,19 @@ def make_filter(**keywords):
 
 sample_data = [
     {
-        "name": "Bill",
+        "first_name": "Bill",
         "last_name": "Gilbert",
         "occupation": "was here",
         "type": "person",
     },
-    {"is_dead": True, "kind": "parrot", "type": "bird", "name": "polly"},
+    {"is_dead": True, "kind": "parrot", "type": "bird", "first_name": "polly"},
 ]
 
-# make_filter(name='polly', type='bird').apply(sample_data) should return only second entry from the list
+# make_filter(first_name='polly', type='bird').apply(sample_data) should return only second entry from the list
 
 # There are multiple bugs in this code. Find them all and write tests for faulty cases.
 
-"""print(make_filter(name="jill").apply(sample_data))
+"""print(make_filter(first_name="jill").apply(sample_data))
 
 
 positive_even = Filter([lambda a: a % 2 == 0, lambda a: a > 0, lambda a: isinstance(a, int)])
